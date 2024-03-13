@@ -15,14 +15,14 @@ def extract_video_id(url):
 # Function to check if video ID exists in the database
 def check_video_id_exists(conn, video_id):
     with conn.cursor() as cur:
-        cur.execute("SELECT * FROM youtube_videos WHERE video_id = %s", (video_id,))
+        cur.execute("SELECT * FROM akool_youtube_ids WHERE id = %s", (video_id,))
         return cur.fetchone() is not None
 
 
 # Function to add video ID to the database
 def add_video_id(conn, video_id):
     with conn.cursor() as cur:
-        cur.execute("INSERT INTO youtube_videos (video_id) VALUES (%s)", (video_id,))
+        cur.execute("INSERT INTO akool_youtube_ids (id) VALUES (%s)", (video_id,))
         conn.commit()
 
 
