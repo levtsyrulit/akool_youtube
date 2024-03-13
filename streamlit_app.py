@@ -12,14 +12,19 @@ def set_custom_style():
         background-color: #0E1117;
     }
 
-    /* Change the background color of the sidebar */
-    .stSidebar > div:first-child {
-        background-color: #0E1117;
+    /* Change the text color of the title and text input to white */
+    h1, label, .stTextInput {
+        color: white;
     }
 
-    /* Change text color to white */
-    .st-cd {
-        color: white;
+    /* Change the text color inside the text input box to black */
+    .stTextInput > input {
+        color: black;
+    }
+
+    /* Change the placeholder color inside the text input box to a lighter shade */
+    .stTextInput > input::placeholder {
+        color: #AAAAAA;
     }
 
     /* Other style changes you want to make */
