@@ -28,7 +28,7 @@ def add_video_id(conn, video_id):
 
 # Streamlit app
 def main():
-    st.sidebar.image("images/SaharaAI_logo.png", use_column_width=True)
+    st.sidebar.image("Images/SaharaAI_logo.png", use_column_width=True)
 
     st.title("SaharaAI YouTube video collector ")
 
