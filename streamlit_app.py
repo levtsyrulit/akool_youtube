@@ -1,59 +1,45 @@
 import streamlit as st
 import psycopg2
 import re
-import base64
 
-# Load your image and get base64
-def get_base64_of_image(image_path):
-    with open(image_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode('utf-8')
-
-# Assuming your image is saved locally in the same directory as your Streamlit app script
-# Or you can provide a full path to the image
 # Function to apply a custom style
 def set_custom_style():
     # Define your custom style here
     custom_style = """
-        <style>
-        /* Change the background color of the main page */
-        .stApp {
-            background-color: #0E1117;
-        }
+    <style>
+    /* Change the background color of the main page */
+    .stApp {
+        background-color: #0E1117;
+    }
 
-        /* Change the text color of the title and text input to white */
-        h1, label, .stTextInput {
-            color: white;
-        }
+    /* Change the text color of the title to white */
+    h1 {
+        color: white;
+    }
 
-        .stTextInput > input {
-            color: black;
-        }
+    /* Change the label color to white */
+    .stTextInput label {
+        color: white !important;
+    }
 
-        .stTextInput > input::placeholder {
-            color: #AAAAAA;
-        }
+    /* Change the text color inside the text input box to black */
+    .stTextInput input {
+        color: black;
+    }
 
-        /* Hide the image expander button */
-        .stImage > div > div:first-child > div > button {
-            display: none;
-        }
+    /* Change the placeholder color inside the text input box to a lighter shade */
+    .stTextInput input::placeholder {
+        color: #AAAAAA;
+    }
 
-        /* Change title margin */
-        .st-bw {
-            margin-top: 3rem;
-        }
+    /* This is to ensure that warning and error messages are readable */
+    .stAlert {
+        background-color: #0E1117;
+        color: white;
+    }
 
-        /* Change the button color */
-        button {
-            border: 1px solid white;
-            color: white;
-        }
-
-        /* Other style changes you want to make */
-        </style>
-        <!-- Static image at the top-left corner -->
-        <img src="data:image/png;base64,YOUR_BASE64_ENCODED_IMAGE" alt="SaharaAI Logo" 
-        style="position: fixed; top: 0; left: 0; width: 125px; z-index: 999;">
+    /* Other style changes you want to make */
+    </style>
     """
 
     # Apply the custom style
@@ -84,10 +70,8 @@ def add_video_id(conn, video_id):
         cur.execute("INSERT INTO akool_youtube_ids (id) VALUES (%s)", (video_id,))
         conn.commit()
 
-
 # Streamlit app
 def main():
-    base64_logo = get_base64_of_image("Images/SaharaAI_logo.png")
     #st.image("Images/SaharaAI_logo.png", width=250)
 
     st.title("SaharaAI YouTube video collector ")
