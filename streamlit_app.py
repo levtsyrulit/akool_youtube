@@ -2,10 +2,6 @@ import streamlit as st
 import psycopg2
 import re
 
-from PIL import Image
-
-# Load your image
-
 # Function to apply a custom style
 def set_custom_style():
     # Define your custom style here
@@ -61,14 +57,7 @@ def add_video_id(conn, video_id):
 
 # Streamlit app
 def main():
-    image = Image.open('Images/SaharaAI_logo.png')
-    basewidth = image.size[0] // 2  # Width is half the original width
-    wpercent = (basewidth / float(image.size[0]))
-    hsize = int((float(image.size[1]) * float(wpercent)))
-    image = image.resize((basewidth, hsize), Image.ANTIALIAS)
-
-    # Use the image in Streamlit
-    st.image(image)
+    st.image("Images/SaharaAI_logo.png", width=250)
 
     st.title("SaharaAI YouTube video collector ")
 
