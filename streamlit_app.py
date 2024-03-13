@@ -12,19 +12,30 @@ def set_custom_style():
         background-color: #0E1117;
     }
 
-    /* Change the text color of the title and text input to white */
-    h1, label, .stTextInput {
+    /* Change the text color of the title to white */
+    h1 {
         color: white;
     }
 
+    /* Change the label color to white */
+    .stTextInput label {
+        color: white !important;
+    }
+
     /* Change the text color inside the text input box to black */
-    .stTextInput > input {
+    .stTextInput input {
         color: black;
     }
 
     /* Change the placeholder color inside the text input box to a lighter shade */
-    .stTextInput > input::placeholder {
+    .stTextInput input::placeholder {
         color: #AAAAAA;
+    }
+
+    /* This is to ensure that warning and error messages are readable */
+    .stAlert {
+        background-color: #0E1117;
+        color: white;
     }
 
     /* Other style changes you want to make */
