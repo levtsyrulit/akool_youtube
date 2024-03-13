@@ -2,6 +2,40 @@ import streamlit as st
 import psycopg2
 import re
 
+from PIL import Image
+
+# Load your image
+image = Image.open('Images/SaharaAI_logo.png')
+
+# Function to apply a custom style
+def set_custom_style():
+    # Define your custom style here
+    custom_style = """
+    <style>
+    /* Change the background color of the main page */
+    .stApp {
+        background-color: #0E1117;
+    }
+
+    /* Change the background color of the sidebar */
+    .stSidebar > div:first-child {
+        background-color: #0E1117;
+    }
+
+    /* Change text color to white */
+    .st-cd {
+        color: white;
+    }
+
+    /* Other style changes you want to make */
+    </style>
+    """
+
+    # Apply the custom style
+    st.markdown(custom_style, unsafe_allow_html=True)
+
+# Apply the custom style
+set_custom_style()
 
 # Function to extract video ID from YouTube URL
 def extract_video_id(url):
@@ -28,7 +62,7 @@ def add_video_id(conn, video_id):
 
 # Streamlit app
 def main():
-    st.image("Images/SaharaAI_logo.png", width=250)
+    #st.image("Images/SaharaAI_logo.png", width=250)
 
     st.title("SaharaAI YouTube video collector ")
 
