@@ -28,7 +28,9 @@ def add_video_id(conn, video_id):
 
 # Streamlit app
 def main():
-    st.title("YouTube Video Checker")
+    st.sidebar.image("images/SaharaAI_logo.png", use_column_width=True)
+
+    st.title("SaharaAI YouTube video collector ")
 
     # Database connection
     conn = psycopg2.connect(
@@ -41,16 +43,20 @@ def main():
     # Input for YouTube URL
     youtube_url = st.text_input("Enter YouTube URL:")
 
-    if youtube_url:
-        video_id = extract_video_id(youtube_url)
-        if video_id:
-            if check_video_id_exists(conn, video_id):
-                st.warning("This video has already been added.")
+    # Send button
+    if st.button("Send"):
+        if youtube_url:
+            video_id = extract_video_id(youtube_url)
+            if video_id:
+                if check_video_id_exists(conn, video_id):
+                    st.warning("Error! This video has already been added, please add another one!")
+                else:
+                    add_video_id(conn, video_id)
+                    st.success("Success! Video has been sent!")
             else:
-                add_video_id(conn, video_id)
-                st.success("Video has been sent.")
+                st.error("Invalid YouTube URL.")
         else:
-            st.error("Invalid YouTube URL.")
+            st.error("Please enter a YouTube URL.")
 
     conn.close()
 
