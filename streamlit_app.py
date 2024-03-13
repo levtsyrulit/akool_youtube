@@ -12,21 +12,13 @@ def set_custom_style():
         background-color: #0E1117;
     }
 
-    /* Add a static image to the header */
-    .header-img {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        height: 100px; /* You can adjust the size of the image */
-    }
-
     /* Change the text color of the title to white */
     h1 {
         color: white;
     }
 
     /* Change the label color to white */
-    .stTextInput label, .stButton > button {
+    .stTextInput label {
         color: white !important;
     }
 
@@ -48,7 +40,6 @@ def set_custom_style():
 
     /* Other style changes you want to make */
     </style>
-    <img src="Images/SaharaAI_logo.png" class="header-img">
     """
 
     # Apply the custom style
@@ -82,7 +73,7 @@ def add_video_id(conn, video_id):
 
 # Streamlit app
 def main():
-    #st.image("Images/SaharaAI_logo.png", width=250)
+    st.image("Images/SaharaAI_logo.png", width=250)
 
     st.title("SaharaAI YouTube video collector ")
 
